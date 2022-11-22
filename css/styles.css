@@ -82,7 +82,6 @@ nav {
 
 .logo {
   color: var(--highlight-сolor);
-
 }
 .header-nav-list {
   display: flex;
@@ -126,9 +125,6 @@ nav {
   color: var(--highlight-сolor);
 }
 
-
-
-
 /*contacts*/
 .header-contacts {
   display: flex;
@@ -165,7 +161,6 @@ nav {
   transition-property: fill;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-timing-function);
-
 }
 
 .header-contact-link:hover .contact-icon,
@@ -239,6 +234,50 @@ nav {
   letter-spacing: 0.06em;
 
   cursor: pointer;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+
+  background-color: var(--background-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: transform var(--transition-duration)
+    var(--transition-timing-function);
+}
+.hero-btn-close {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--background-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.modal-close-icon {
+  fill: currentColor;
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /*sections*/
@@ -470,20 +509,19 @@ img {
   border-radius: 4px;
   color: var(--fill-icon);
   transition: color 25;
-  
+
   transition-property: color;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-timing-function);
-
 }
 .client-icon {
   width: 106px;
   height: 60px;
   fill: currentColor;
 
- transition-property: fill;
- transition-duration: var(--transition-duration);
- transition-timing-function: var(--transition-timing-function);
+  transition-property: fill;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
 }
 
 .client-link:hover,
@@ -532,7 +570,7 @@ img {
 
   transition-property: color;
   transition-duration: var(--transition-duration);
-   transition-timing-function: var(--transition-timing-function);
+  transition-timing-function: var(--transition-timing-function);
 }
 .footer-logo:hover,
 .footer-logo:focus {
@@ -598,7 +636,7 @@ img {
   color: var(--background-color);
   background: rgba(255, 255, 255, 0.1);
 
-  transition-property: color;
+  transition-property: background-color;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-timing-function);
 }
@@ -645,7 +683,7 @@ img {
   border: none;
   cursor: pointer;
 
-  transition-property: background-color color box-shadow;
+  transition-property: background-color, color, box-shadow;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-timing-function);
 }
@@ -675,16 +713,51 @@ img {
   height: 100%;
   text-decoration: none;
 
-  transition-property:  box-shadow;
+  transition-property: box-shadow;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-timing-function);
 }
 
+.overlay-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay-thumb_desc {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  padding: 63px 24px;
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--background-color);
+  background-color: rgba(33, 150, 243, 0.9);
+  opacity: 0;
+  transform: translateY(100%);
+
+  transition-property: transform, opacity;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
+}
+.overlay-thumb_text {
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--background-color);
+}
+
+.overlay-thumb:hover .overlay-thumb_desc {
+  opacity: 1;
+  transform: translateY(0);
+}
 .project-link:hover,
 .project-link:focus {
+  opacity: 1;
   box-shadow: 0px 1px 1px rgb(0 0 0 / 12%), 0px 4px 4px rgb(0 0 0 / 6%),
     1px 4px 6px rgb(0 0 0 / 16%);
 }
+
 .project-image {
   display: block;
   max-width: 100%;
